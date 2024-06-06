@@ -1,6 +1,10 @@
 jQuery(document).ready(function ($) {
   var $button = $(".elementor-button-fixed");
 
+  $(window).on("load", function () {
+    $button.fadeIn();
+  });
+
   $(window).on("scroll", function () {
     var scrollPosition = $(window).scrollTop();
     var windowHeight = $(window).height();

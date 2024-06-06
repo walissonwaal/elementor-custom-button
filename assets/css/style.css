@@ -17,6 +17,7 @@
   z-index: 1000;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -27,6 +28,22 @@
   box-sizing: border-box;
   border: none;
   outline: none;
+}
+
+.elementor-button-fixed .elementor-button-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.elementor-button-fixed .elementor-button-text {
+  margin-bottom: 10px;
+}
+
+.elementor-button-fixed .e-fas-long-arrow-alt-down {
+  color: #fff;
+  fill: #fff;
+  height: 24px;
 }
 
 .elementor-button-fixed::after {

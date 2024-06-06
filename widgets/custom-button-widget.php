@@ -62,6 +62,18 @@ class Elementor_Custom_Button_Widget extends \Elementor\Widget_Base
       ]
     );
 
+    $this->add_control(
+      'button_icon',
+      [
+        'label' => __('Button Icon', 'custom-elementor-widget'),
+        'type' => \Elementor\Controls_Manager::ICONS,
+        'default' => [
+          'value' => 'fas fa-long-arrow-alt-down',
+          'library' => 'solid',
+        ],
+      ]
+    );
+
     $this->end_controls_section();
   }
 
@@ -69,15 +81,24 @@ class Elementor_Custom_Button_Widget extends \Elementor\Widget_Base
   {
     $settings = $this->get_settings_for_display();
     ?>
-    <a href="<?php echo esc_url($settings['button_link']['url']); ?>"
-      class="elementor-button-fixed"><?php echo esc_html($settings['button_text']); ?></a>
+    <a href="<?php echo esc_url($settings['button_link']['url']); ?>" class="elementor-button-fixed">
+      <div class="elementor-button-content-wrapper">
+        <span class="elementor-button-text"><?php echo esc_html($settings['button_text']); ?></span>
+        <?php \Elementor\Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true']); ?>
+      </div>
+    </a>
     <?php
   }
 
   protected function _content_template()
   {
     ?>
-    <a href="{{ settings.button_link.url }}" class="elementor-button-fixed">{{{ settings.button_text }}}</a>
+    <a href="{{ settings.button_link.url }}" class="elementor-button-fixed">
+      <div class="elementor-button-content-wrapper">
+        <span class="elementor-button-text">{{{ settings.button_text }}}</span>
+        <i class="{{ settings.button_icon.value }}" aria-hidden="true"></i>
+      </div>
+    </a>
     <?php
   }
 }
