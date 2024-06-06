@@ -84,7 +84,9 @@ class Elementor_Custom_Button_Widget extends \Elementor\Widget_Base
     <a href="<?php echo esc_url($settings['button_link']['url']); ?>" class="elementor-button-fixed">
       <div class="elementor-button-content-wrapper">
         <span class="elementor-button-text"><?php echo esc_html($settings['button_text']); ?></span>
-        <?php \Elementor\Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true']); ?>
+        <span class="elementor-button-icon-wrapper">
+          <?php \Elementor\Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true', 'class' => 'elementor-button-icon']); ?>
+        </span>
       </div>
     </a>
     <?php
@@ -96,9 +98,12 @@ class Elementor_Custom_Button_Widget extends \Elementor\Widget_Base
     <a href="{{ settings.button_link.url }}" class="elementor-button-fixed">
       <div class="elementor-button-content-wrapper">
         <span class="elementor-button-text">{{{ settings.button_text }}}</span>
-        <i class="{{ settings.button_icon.value }}" aria-hidden="true"></i>
+        <span class="elementor-button-icon-wrapper">
+          <i class="{{ settings.button_icon.value }} elementor-button-icon" aria-hidden="true"></i>
+        </span>
       </div>
     </a>
     <?php
   }
+
 }
