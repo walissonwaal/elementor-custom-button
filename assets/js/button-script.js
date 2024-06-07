@@ -10,6 +10,7 @@ jQuery(document).ready(function ($) {
     var checkMastheadLoaded = setInterval(function () {
       if ($("#masthead").length) {
         $button.fadeIn();
+        $button.css("display", "flex");
         //  $button.addClass('animate-entry');
         clearInterval(checkMastheadLoaded);
       }
